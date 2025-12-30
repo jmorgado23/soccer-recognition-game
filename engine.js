@@ -30,7 +30,11 @@ function parseCSV(csv) {
   return rows.map(r => {
     let o = {};
     headers.forEach((k, i) => o[k] = (r[i] || "").trim());
-    return { name: o.full_name, conf: Number(o.confidence_level) };
+    return {
+      name: o.full_name,
+      aliases: o.aliases || "",
+      conf: Number(o.confidence_level)
+    };
   }).filter(x => x.name);
 }
 
@@ -89,7 +93,10 @@ function submitGuess() {
   const normalizedGuess = normalizeString(guess);
   const normalizedCorrect = normalizeString(correctName);
   
-  if (isCloseEnough(guess, correctName)) {
+  const aliases = round[idx].aliases || "";
+
+  if (matchesNameOrAlias(guess, correctName, aliases)) {
+
     score += 1;
   
     feedback.innerHTML = `Correct!<br><span class="small">${correctName}</span>`;

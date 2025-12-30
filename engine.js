@@ -210,3 +210,16 @@ function isCloseEnough(input, answer) {
   if (b.length <= 10) return distance <= 2;
   return distance <= 3;
 }
+
+function matchesNameOrAlias(guess, fullName, aliases) {
+  if (isCloseEnough(guess, fullName)) return true;
+
+  if (!aliases) return false;
+
+  const aliasList = aliases
+    .split(",")
+    .map(a => a.trim())
+    .filter(Boolean);
+
+  return aliasList.some(alias => isCloseEnough(guess, alias));
+}

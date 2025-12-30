@@ -6,7 +6,7 @@ window.CONFIG = {
 
   description: "Test how well you recognize soccer players. One attempt per face.",
 
-  datasetUrl: "", // add CSV next
+  datasetUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQjziYBnLskOUHSUhmHClCd6oZ4rHi4yrSHHpZsfy8ML1ES3Snbx4Gk1L59qUeG5Kt6vxxHBTp5_YAA/pub?output=csv", 
 
   totalPerRound: 20,
   pointsPerCorrect: 10,

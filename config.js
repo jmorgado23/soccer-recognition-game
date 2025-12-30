@@ -27,7 +27,7 @@ window.CONFIG = {
   background: {
     start: "#e3f2fd",
     end: "#bbdefb"
-  }
+  },
 
   relatedGames: [
     { name: "NBA", url: "https://nbarecognitiongame.com" },
